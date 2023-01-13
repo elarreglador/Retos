@@ -27,7 +27,7 @@ package Retos.R01Tenis;
  */
 public class R01Tenis {
     public static void main (String[] args){
-        String secuencia = "P1,P1,P2,P2,P1,P2,P1,P1";
+        String secuencia = "P1,p2,P1,P1,P1,P2,P2,P2,P2";
         String sec[] = new String[Separa(secuencia).length];
         Marcador marcador = new Marcador();
         
@@ -37,17 +37,28 @@ public class R01Tenis {
             System.out.print(juego+": ");
             if (juego.equalsIgnoreCase("P1")){
                 marcador.Puntua(0);
-            } else {
+            } else if (juego.equalsIgnoreCase("P2")){
                 marcador.Puntua(1);
+            } else {
+                System.out.println("ERROR: localizado en main, juego = "+juego);
             }
+            
             System.out.println(marcador.ToString());
         }
 
                 
     }
     
-    //devuelve en un array cada una de las victorias de la secuencia
+    //Verifica que la secuencia se avalida y la devuelve en forma de array
     public static String[] Separa(String secuencia){
-        return secuencia.split(",", 0);
+        secuencia=secuencia.toUpperCase();
+        String[] retorno = new String[secuencia.split(",", 0).length];
+        retorno = secuencia.split(",", 0);
+        for (String valor:retorno){
+            if (!valor.equals("P1")&&!valor.equals("P2")){
+                System.out.println("Error en la secuencia. valor = "+valor);
+            } 
+        }
+        return retorno;
     }
 }

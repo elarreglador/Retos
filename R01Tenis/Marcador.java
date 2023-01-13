@@ -39,11 +39,13 @@ public class Marcador {
             if (player1==4){
                 player1--;
             }
-        } else {
+        } else if (player==1){
             player1++;
             if (player0==4){
                 player0--;
             }
+        } else {
+            System.out.println("ERROR: localizado en Puntua("+player+")");
         }
     }
     
