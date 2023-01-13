@@ -9,14 +9,30 @@ package Retos.R01Tenis;
  * @author arreglador
  */
 public class Marcador {
+    //puntuaciones de ambos jugadores (P1=player0 y P2=player1)
     int player0;
     int player1;
     
+    //constructor del objeto Marcador
     public Marcador(){
         player0 = 0;
         player1 = 0;
     }
     
+    /*
+    Puntua() gestiona los puntos de cada jugador:
+    por motivos practicos se emplea esta tabla de puntuacion - valor
+    
+    love (0) - 0
+    15 - 1
+    30 - 2
+    40 - 3
+    ventaja - 4
+    juego (gana) - 5
+
+    si cuando uno de los jugadores tiene ventaja (==4), el otro puntua, su puntuacion
+    pasa a ser de nuevo de 40 puntos
+    */
     public void Puntua (int player){
         if (player==0){
             player0++;
@@ -31,6 +47,7 @@ public class Marcador {
         }
     }
     
+    // Hace peticion de traducir ToHuman() e indica si hay ventaja o si ha ganado un jugador
     public String ToString(){
         String retorno;
         retorno = this.ToHuman(player0)+" - "+ this.ToHuman(player1);
@@ -53,6 +70,7 @@ public class Marcador {
         return retorno;
     }
     
+    // Convierte los valores de puntuacion 1-5 en valores 'tenisticos'.
     public String ToHuman(int valor){
         String retorno = switch (valor){
             case 0 -> "love";

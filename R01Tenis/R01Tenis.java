@@ -46,6 +46,7 @@ public class R01Tenis {
                 
     }
     
+    //devuelve en un array cada una de las victorias de la secuencia
     public static String[] Separa(String secuencia){
         return secuencia.split(",", 0);
     }
